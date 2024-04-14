@@ -1,7 +1,7 @@
 import { NextApiRequest } from "next";
 import { NextApiResponse } from "next";
 import { NextResponse } from "next/server";
-export async function GET(req: NextApiRequest, res: NextApiResponse) {
+export async function GET(Request:any) {
   /*const user = "ratos" //params.user;
   const{ map}={map:{'cat':'dog'}};
   const message= `Welcome to my Next application, user: ${user}`

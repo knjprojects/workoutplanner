@@ -44,7 +44,7 @@ const Users = (props: Props) => {
       };*/
     return (
       <div>
-        <p>Below i am trying to render a messsage response from my flaskreponse/route.ts file</p>
+        <p>Below i am trying to render a messsage response from my users/route.ts file</p>
         
         <div>
         {users?users?.map((user:any)=>{
