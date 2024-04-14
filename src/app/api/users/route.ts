@@ -8,8 +8,8 @@ export async function GET(Request:any) {
   return NextResponse.json(map);*/
     //return new Response(`map:${map},user:${user}`).json;
     try {
-        const response = await fetch('https://workoutplannerbackend.onrender.com/api/users')
-        const data = await response.json()
+        const response:any = await fetch('https://workoutplannerbackend.onrender.com/api/users')
+        const data:any = await response.json()
         return NextResponse.json(data)
       } catch (error) {
         return NextResponse.json({ error: 'An error occurred while fetching data from the Flask server.' })

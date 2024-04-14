@@ -4,15 +4,15 @@ import React,{useState,useEffect} from 'react'
 type Props = {}
 
 const Users = (props: Props) => {
-    const [users, setUsers]:any = useState(null);
+    const [users, setUsers]:any = useState([]);
     const [emailResponse,setEmailResponse]:any=useState({})
 
     useEffect(() => {
       const fetchData = async () => {
         try {
-            const response = await fetch('/api/users');
+            const response:any = await fetch('/api/users');
             if (response.ok) {
-              const users = await response.json()
+              const users:any = await response.json()
               //const object=parseJSONString(data)
               //setMessage(map['dog']);
               setUsers(users);
@@ -47,11 +47,11 @@ const Users = (props: Props) => {
         <p>Below i am trying to render a messsage response from my users/route.ts file</p>
         
         <div>
-        {users?users?.map((user:any)=>{
-          return(
+        {users? users.map((user:any)=>
+         (
             <p key={user.id}>{user.username}</p>
           )
-        })
+        )
       :<></>}
          </div>
        
