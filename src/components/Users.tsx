@@ -3,23 +3,23 @@ import React,{useState,useEffect} from 'react'
 
 type Props = {}
 
-const CallApiRoute = (props: Props) => {
-    const [message, setMessage]:any = useState(null);
+const Users = (props: Props) => {
+    const [users, setUsers]:any = useState(null);
     const [emailResponse,setEmailResponse]:any=useState({})
 
     useEffect(() => {
       const fetchData = async () => {
         try {
-            const response = await fetch('/api/flaskresponse');
+            const response = await fetch('/api/users');
             if (response.ok) {
-              const map = await response.json()
+              const users = await response.json()
               //const object=parseJSONString(data)
               //setMessage(map['dog']);
-              setMessage(map);
+              setUsers(users);
             } else {
             }
           } catch (error) {
-           
+            console.log(error)
           }
           
       };
@@ -45,14 +45,23 @@ const CallApiRoute = (props: Props) => {
     return (
       <div>
         <p>Below i am trying to render a messsage response from my flaskreponse/route.ts file</p>
-        {message?<p>{message}</p> : <></>}
         
-        {emailResponse?
+        <div>
+        {users?users?.map((user:any)=>{
+          return(
+            <p key={user.id}>{user.username}</p>
+          )
+        })
+      :<></>}
+         </div>
+       
+        
+        {/*emailResponse?
         <p>{emailResponse.toString()} </p>: <p>No response from resen email test</p>
-        }
+      */}
        {/* <button onClick={()=>testEmail()}>Test Email</button>}*/}
         
       </div>
     );
   }
-export default CallApiRoute
+export default Users

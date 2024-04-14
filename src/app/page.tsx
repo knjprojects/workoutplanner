@@ -1,4 +1,4 @@
-import CallApiRoute from "@/components/CallApiRoute";
+import Users from "@/components/Users";
 import Image from "next/image";
 
 export default function Home() {
@@ -6,7 +6,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       
       <div className="flex flex-col items-center">
-        <CallApiRoute />
+        <Users />
         {/*<button onClick={()=>{}} />*/}
         
       </div>
