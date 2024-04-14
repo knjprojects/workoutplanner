@@ -2,6 +2,7 @@
 import React,{useState, useEffect} from "react";
 import Users from "@/components/Users";
 import Image from "next/image";
+import Login from "./login/page";
 
 export default function Home() {
   const [message, setMessage]:any = useState('');
@@ -34,6 +35,7 @@ export default function Home() {
           : 
           <p>No database initialized yet</p>
         }
+        <Login />
        
         {/*<button onClick={()=>{}} />*/}
         
