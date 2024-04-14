@@ -5,10 +5,9 @@ type Props = {}
 
 const Users = (props: Props) => {
     const [users, setUsers]:any = useState([]);
+    //const uses=fetchData();
     const [emailResponse,setEmailResponse]:any=useState({})
-
-    useEffect(() => {
-      const fetchData = async () => {
+ const fetchData = async () => {
         try {
             const response:any = await fetch('/api/users');
             if (response.ok) {
@@ -16,6 +15,7 @@ const Users = (props: Props) => {
               //const object=parseJSONString(data)
               //setMessage(map['dog']);
               setUsers(users);
+              return users;
             } else {
             }
           } catch (error) {
@@ -23,10 +23,12 @@ const Users = (props: Props) => {
           }
           
       };
+    useEffect(() => {
+     
       
   
       fetchData();
-    }, []);
+    }, [users]);
     /*const testEmail = async () => {
         try {
             const response = await fetch('/api/send');
